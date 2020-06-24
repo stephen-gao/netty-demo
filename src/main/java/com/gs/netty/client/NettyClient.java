@@ -40,7 +40,7 @@ public class NettyClient {
                     @Override
                     protected void initChannel(Channel ch) throws Exception {
                         ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 128, 4))
-                                .addLast(new IdleStateHandler(0, 0, 30, TimeUnit.SECONDS))
+                                .addLast(new IdleStateHandler(0, 0, 60, TimeUnit.SECONDS))
                                 .addLast(new IMDecoder())
                                 .addLast(new IMEncoder())
                                 .addLast(new HeartBeatClientHandler());
