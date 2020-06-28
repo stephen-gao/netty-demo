@@ -62,7 +62,7 @@ public class IMDecoder extends ByteToMessageDecoder {
             CmdEnum cmdEnum = CmdEnum.getCmd(cmd, subCmd);
             packet.setCmdEnum(cmdEnum);
             //预留字段16位
-            in.readLong();
+            in.readInt();
             in.readLong();
             //消息ID
             packet.setMessageId(readByteString(in, Protocol.MESSAGE_ID_LENGTH));

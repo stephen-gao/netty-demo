@@ -53,7 +53,7 @@ public class NettyServer {
             sbs.childHandler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 protected void initChannel(SocketChannel ch) throws Exception {
-                    ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,128,4));
+                    ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,124,4));
                     ch.pipeline().addLast(new IdleStateHandler(0, 0, 30, TimeUnit.SECONDS));
                     ch.pipeline().addLast(new IMDecoder());
                     ch.pipeline().addLast(new IMEncoder());

@@ -46,7 +46,7 @@ public class IMEncoder extends MessageToByteEncoder<Packet> {
             //子业务类型
             out.writeInt(packet.getCmdEnum().getSubcmd());
             //预留字段16位
-            out.writeLong(0L);
+            out.writeInt(0);
             out.writeLong(0L);
             //设置消息Id
             out.writeBytes(packet.getMessageId().getBytes(StandardCharsets.US_ASCII));
